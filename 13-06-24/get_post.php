@@ -58,7 +58,7 @@ echo $_POST['pswd2'];
 // print_r($_POST);
 
 ?>
-<h1>if isset post method</h1>
+<h1>if isset post request method</h1>
 <form action="" method="post">
 
 Email address:<br />
