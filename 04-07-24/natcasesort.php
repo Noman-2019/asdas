@@ -1,6 +1,10 @@
 <?php
-$files=array("Picture1.jpg", "picture10.jpg", "picture2.jpg", "picture20.jpg","picture5.jpg","picture15.jpg","Picture8.jpg");
+$files=array("Picture1.JPG","picture2.jpg","PICTURE10.jpg", "picture20.jpg");
 echo "<pre>";
+print_r($files);
+
+natsort($files);
+echo "<hr>";
 print_r($files);
 
 natcasesort($files);
