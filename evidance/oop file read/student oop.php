@@ -18,17 +18,25 @@
     <?php
     if(isset($_REQUEST["submit"])){
         $stid = $_REQUEST['stid'];
-        echo show_result($stid);
+        $obj=new student('result.txt');
+        $obj->show_result($stid);
         }
-        function show_result($stid){
-            $datas=file('result.txt');
+        class student{
+            public $datas;
+            public $arrayData;
+            public function __construct($file){
+                $this->datas =$file;
+                $this->arrayData =file($this->datas);
+            }
+        public function show_result($stid){
+            // $this->datas=file('result.txt');
         // echo "<pre>";
         // print_r($data);
-        foreach($datas as $data){
+        foreach($this->arrayData as $data){
             $line=explode("|",$data);
             list($id,$name,$score,$result)=$line;
             if($id==$stid){
-                return "ID : ".$id."<br>" .
+                $output =  "ID : ".$id."<br>" .
                 "Name: ".$name ."<br>" . 
                 "Score: ".$score ."<br>" .
                 "Result : ".$result;
@@ -37,7 +45,10 @@
             }
 
         }
+        echo $output;
         }
+    }
+
 
     
     ?>
